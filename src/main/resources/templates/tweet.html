@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
->
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+	<form method="post" action="/">
+		<input type="text" name="name">
+		<input type="text" name="message">
+		<input type="submit" value="送信">
+	</form>
 	<table>
-		<tr th:each="tweet : ${tweet}">
+		<tr th:each="tweet : ${tweets}">
 			<td th:text="${tweet:id}"></td>
 			<td th:text="${tweet:name}"></td>
 			<td th:text="${tweet:message}"></td>

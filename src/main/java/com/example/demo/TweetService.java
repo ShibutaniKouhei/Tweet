@@ -15,7 +15,7 @@ public class TweetService {
 		return tweetRepository.findAll();
 	}
 
-	public Tweet findOne(Long id) {
+	public Tweet findOne(Integer id) {
 		return tweetRepository.getOne(id);
 	}
 
@@ -23,7 +23,7 @@ public class TweetService {
 		return tweetRepository.save(tweet);
 	}
 
-	public void delete(Long id) {
+	public void delete(Integer id) {
 		tweetRepository.deleteById(id);
 	}
 
