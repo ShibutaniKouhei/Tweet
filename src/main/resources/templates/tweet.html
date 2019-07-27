@@ -5,16 +5,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="post" action="/">
+	<form method="post" url="/" th:object="${messageForm}">
 		<input type="text" name="name">
 		<input type="text" name="message">
-		<input type="submit" value="送信">
+		<input type="submit" value="insert">
 	</form>
 	<table>
 		<tr th:each="tweet : ${tweets}">
-			<td th:text="${tweet:id}"></td>
-			<td th:text="${tweet:name}"></td>
-			<td th:text="${tweet:message}"></td>
+			<td th:text="${tweet.id}"></td>
+			<td th:text="${tweet.name}"></td>
+			<td th:text="${tweet.message}"></td>
+			<td>
+				<form method="post" url="/" th:object="${delete}">
+					<input type="submit" value="delete">
+				</form>
+			</td>
 		</tr>
 	</table>
 </body>
