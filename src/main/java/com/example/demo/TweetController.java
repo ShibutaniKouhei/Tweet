@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 
@@ -34,8 +35,8 @@ public class TweetController {
 
 	@RequestMapping(value = "/", params="delete",method = RequestMethod.POST)
 	@Transactional(readOnly=false)
-	public String delete(@ModelAttribute("delete") Tweet tweet) {
-		tweetService.delete(tweet.getId());
+	public String delete(@RequestParam("id") Integer id) {
+		tweetService.delete(id);
 		return "redirect:/";
 	}
 

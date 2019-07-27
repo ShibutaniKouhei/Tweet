@@ -12,12 +12,13 @@
 	</form>
 	<table>
 		<tr th:each="tweet : ${tweets}">
-			<td th:text="${tweet.id}"></td>
+			<!-- <td th:text="${tweet.id}"></td> -->
 			<td th:text="${tweet.name}"></td>
 			<td th:text="${tweet.message}"></td>
 			<td>
-				<form method="post" url="/" th:object="${delete}">
-					<input type="submit" value="delete">
+				<form method="post" url="/">
+					<input type="hidden" name="id" th:value="${tweet.id}">
+					<input type="submit" name="delete" value="delete">
 				</form>
 			</td>
 		</tr>
